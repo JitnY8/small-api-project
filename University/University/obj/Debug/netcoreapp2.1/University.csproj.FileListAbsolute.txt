@@ -1,0 +1,14 @@
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\bin\Debug\netcoreapp2.1\University.deps.json
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\bin\Debug\netcoreapp2.1\University.runtimeconfig.json
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\bin\Debug\netcoreapp2.1\University.runtimeconfig.dev.json
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\bin\Debug\netcoreapp2.1\University.dll
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\obj\Debug\netcoreapp2.1\University.csprojAssemblyReference.cache
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\obj\Debug\netcoreapp2.1\University.csproj.CoreCompileInputs.cache
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\obj\Debug\netcoreapp2.1\University.RazorAssemblyInfo.cache
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\obj\Debug\netcoreapp2.1\University.RazorAssemblyInfo.cs
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\obj\Debug\netcoreapp2.1\University.AssemblyInfoInputs.cache
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\obj\Debug\netcoreapp2.1\University.AssemblyInfo.cs
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\obj\Debug\netcoreapp2.1\University.RazorTargetAssemblyInfo.cache
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\bin\Debug\netcoreapp2.1\University.pdb
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\obj\Debug\netcoreapp2.1\University.dll
+C:\Users\JitnY\Documents\Visual Studio 2017\Projects\University\University\obj\Debug\netcoreapp2.1\University.pdb

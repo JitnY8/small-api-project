@@ -7,7 +7,6 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace University.Models
 {
-    [Serializable]
     public class Class
     {
         [BsonId]

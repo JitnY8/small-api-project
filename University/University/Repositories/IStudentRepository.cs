@@ -10,6 +10,7 @@ namespace University.Repositories
     {
         Task<IEnumerable<Student>> GetAllStudents();
         Task<Student> GetStudent(int id);
+        Task<Class> GetStudentClass(int id);
         Task Create(Student student);
         Task<bool> Update(Student student);
         Task<bool> Delete(int id);

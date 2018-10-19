@@ -33,10 +33,38 @@ namespace University.Controllers
         [HttpGet("{id}", Name = "GetStudent")]
         public async Task<IActionResult> Get(int id)
         {
-            var student = await _studentRepository.GetStudent(id);
-            if (student == null)
+            Student student = new Student();
+            StudentDomain studentDomain = new StudentDomain();
+            ClassDomain _class = new ClassDomain();
+
+            var studentFromDB = await _studentRepository.GetStudent(id);
+
+            if (studentFromDB == null)
                 return new NotFoundResult();
-            return new ObjectResult(student);
+            studentDomain.StudentId = studentFromDB.StudentId;
+            studentDomain.FirstName = studentFromDB.FirstName;
+            studentDomain.LastName = studentFromDB.LastName;
+            studentDomain.DateOfBirth = studentFromDB.DateOfBirth;
+            student.ClassAttend = studentFromDB.ClassAttend;
+
+            var attends = new List<ClassDomain>();
+
+            foreach (var attend in student.ClassAttend)
+            {
+                var classFromDB = await _studentRepository.GetStudentClass(attend);
+                if (classFromDB != null)
+                {
+                    attends.Add(new ClassDomain
+                    {
+                        ClassId = classFromDB.ClassId,
+                        ClassName = classFromDB.ClassName
+                    });
+                }
+            }
+            
+            studentDomain.ClassAttend =attends;
+
+            return new ObjectResult(studentDomain);
         }
 
         // POST: api/Student

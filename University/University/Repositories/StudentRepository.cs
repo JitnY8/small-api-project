@@ -34,6 +34,15 @@ namespace University.Repositories
                     .FirstOrDefaultAsync();
         }
 
+        public Task<Class> GetStudentClass(int id)
+        {
+            FilterDefinition<Class> filter = Builders<Class>.Filter.Eq(m => m.ClassId, id);
+            return _context
+                    .Classes
+                    .Find(filter)
+                    .FirstOrDefaultAsync();
+        }
+
         public async Task Create(Student student)
         {
             await _context.Students.InsertOneAsync(student);

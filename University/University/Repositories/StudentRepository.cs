@@ -18,7 +18,7 @@ namespace University.Repositories
         }
 
         public async Task<IEnumerable<Student>> GetAllStudents()
-        {
+        {            
             return await _context
                             .Students
                             .Find(_ => true)

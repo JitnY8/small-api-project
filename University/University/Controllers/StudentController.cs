@@ -25,7 +25,8 @@ namespace University.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return new ObjectResult(await _studentRepository.GetAllStudents());
+            var student = await _studentRepository.GetAllStudents();
+            return new ObjectResult(student);
         }
 
         // GET: api/Student/id

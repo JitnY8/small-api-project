@@ -7,12 +7,10 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace University.Models
 {
-    public class Instructor
+    public class Instructor : Person
     {
         [BsonId]
         public ObjectId Id { get; set; }
         public int InstructorId { get; set; } 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
     }
 }

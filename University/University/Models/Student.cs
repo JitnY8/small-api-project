@@ -15,6 +15,6 @@ namespace University.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public List<Class> ClassAttend { get; set; } // reference to ClassName in Class class
+        public List<int> ClassAttend { get; set; } // reference to Class Collection
     }
 }

@@ -14,7 +14,7 @@ namespace University.Models
         public ObjectId Id { get; set; }
         public int ClassId { get; set; }
         public string ClassName { get; set; }
-        public Semester Semester { get; set; } // reference to Semester class
-        public Instructor Instructor { get; set; } // reference to Instructor class
+        public List<int> Semester { get; set; } // reference to Semester Collection
+        public List<int> Instructor { get; set; } // reference to Instructor Collection
     }
 }

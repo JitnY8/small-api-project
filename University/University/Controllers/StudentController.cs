@@ -35,7 +35,7 @@ namespace University.Controllers
         {
             Student student = new Student();
             StudentDomain studentDomain = new StudentDomain();
-            ClassDomain _class = new ClassDomain();
+            var attends = new List<ClassDomainForStudent>();
 
             var studentFromDB = await _studentRepository.GetStudent(id);
 
@@ -46,15 +46,13 @@ namespace University.Controllers
             studentDomain.LastName = studentFromDB.LastName;
             studentDomain.DateOfBirth = studentFromDB.DateOfBirth;
             student.ClassAttend = studentFromDB.ClassAttend;
-
-            var attends = new List<ClassDomain>();
-
+           
             foreach (var attend in student.ClassAttend)
             {
                 var classFromDB = await _studentRepository.GetStudentClass(attend);
                 if (classFromDB != null)
                 {
-                    attends.Add(new ClassDomain
+                    attends.Add(new ClassDomainForStudent
                     {
                         ClassId = classFromDB.ClassId,
                         ClassName = classFromDB.ClassName

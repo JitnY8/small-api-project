@@ -34,6 +34,24 @@ namespace University.Repositories
                     .FirstOrDefaultAsync();
         }
 
+        public Task<Instructor> GetClassInstructor(int id)
+        {
+            FilterDefinition<Instructor> filter = Builders<Instructor>.Filter.Eq(m => m.InstructorId, id);
+            return _context
+                    .Instructors
+                    .Find(filter)
+                    .FirstOrDefaultAsync();
+        }
+
+        public Task<Semester> GetClassSemester(int id)
+        {
+            FilterDefinition<Semester> filter = Builders<Semester>.Filter.Eq(m => m.SemesterId, id);
+            return _context
+                    .Semesters
+                    .Find(filter)
+                    .FirstOrDefaultAsync();
+        }
+
         public async Task Create(Class _class)
         {
             await _context.Classes.InsertOneAsync(_class);

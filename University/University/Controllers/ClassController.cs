@@ -32,10 +32,58 @@ namespace University.Controllers
         [HttpGet("{id}", Name = "GetClass")]
         public async Task<IActionResult> Get(int id)
         {
-            var _class = await _classRepository.GetClass(id);
-            if (_class == null)
+            //var _class = await _classRepository.GetClass(id);
+            //if (_class == null)
+            //    return new NotFoundResult();
+            //return new ObjectResult(_class);
+
+            Class _class = new Class();
+            ClassDomain classDomain = new ClassDomain();
+            var instructors = new List<Instructor>();
+            var semesters = new List<Semester>();
+
+            var classFromDB = await _classRepository.GetClass(id);
+
+            if (classFromDB == null)
                 return new NotFoundResult();
-            return new ObjectResult(_class);
+            classDomain.ClassId = classFromDB.ClassId;
+            classDomain.ClassName = classFromDB.ClassName;
+            _class.Semester = classFromDB.Semester;
+            _class.Instructor = classFromDB.Instructor;         
+
+            foreach (var instructor in _class.Instructor)
+            {
+                var instructorFromDB = await _classRepository.GetClassInstructor(instructor);
+                if (instructorFromDB != null)
+                {
+                    instructors.Add(new Instructor
+                    {
+                        Id = instructorFromDB.Id,
+                        InstructorId = instructorFromDB.InstructorId,
+                        FirstName = instructorFromDB.FirstName,
+                        LastName = instructorFromDB.LastName
+                    });
+                }
+            }
+
+            foreach (var semester in _class.Semester)
+            {
+                var semesterFromDB = await _classRepository.GetClassSemester(semester);
+                if (semesterFromDB != null)
+                {
+                    semesters.Add(new Semester
+                    {
+                        Id = semesterFromDB.Id,
+                        SemesterId = semesterFromDB.SemesterId,
+                        SemesterName = semesterFromDB.SemesterName
+                    });
+                }
+            }
+
+            classDomain.Semester = semesters;
+            classDomain.Instructor = instructors;
+
+            return new ObjectResult(classDomain);
         }
 
         // POST: api/Class

@@ -10,6 +10,8 @@ namespace University.Repositories
     {
         Task<IEnumerable<Class>> GetAllClasses();
         Task<Class> GetClass(int id);
+        Task<Instructor> GetClassInstructor(int id);
+        Task<Semester> GetClassSemester(int id);
         Task Create(Class _class);
         Task<bool> Update(Class _class);
         Task<bool> Delete(int id);

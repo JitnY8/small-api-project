@@ -42,6 +42,8 @@ namespace University.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]Instructor instructor)
         {
+            DateTime createDate = DateTime.Now;
+            instructor.CreatedDate = createDate;
             await _instructorRepository.Create(instructor);
             return new OkObjectResult(instructor);
         }
@@ -56,6 +58,8 @@ namespace University.Controllers
             instructorFromDb.InstructorId = instructor.InstructorId;
             instructorFromDb.LastName = instructor.LastName;
             instructorFromDb.FirstName = instructor.FirstName;
+            DateTime updateDate = DateTime.Now;
+            instructorFromDb.UpdatedDate = updateDate;
             await _instructorRepository.Update(instructorFromDb);
             return new OkObjectResult(instructorFromDb);
         }

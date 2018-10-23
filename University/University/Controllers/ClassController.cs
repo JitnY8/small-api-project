@@ -39,8 +39,8 @@ namespace University.Controllers
 
             Class _class = new Class();
             ClassDomain classDomain = new ClassDomain();
-            var instructors = new List<Instructor>();
-            var semesters = new List<Semester>();
+            var instructors = new List<InstructorDomain>();
+            var semesters = new List<SemesterDomain>();
 
             var classFromDB = await _classRepository.GetClass(id);
 
@@ -48,6 +48,8 @@ namespace University.Controllers
                 return new NotFoundResult();
             classDomain.ClassId = classFromDB.ClassId;
             classDomain.ClassName = classFromDB.ClassName;
+            classDomain.CreatedDate = classFromDB.CreatedDate;
+            classDomain.UpdatedDate = classFromDB.UpdatedDate;
             _class.Semester = classFromDB.Semester;
             _class.Instructor = classFromDB.Instructor;         
 
@@ -56,7 +58,7 @@ namespace University.Controllers
                 var instructorFromDB = await _classRepository.GetClassInstructor(instructor);
                 if (instructorFromDB != null)
                 {
-                    instructors.Add(new Instructor
+                    instructors.Add(new InstructorDomain
                     {
                         Id = instructorFromDB.Id,
                         InstructorId = instructorFromDB.InstructorId,
@@ -71,7 +73,7 @@ namespace University.Controllers
                 var semesterFromDB = await _classRepository.GetClassSemester(semester);
                 if (semesterFromDB != null)
                 {
-                    semesters.Add(new Semester
+                    semesters.Add(new SemesterDomain
                     {
                         Id = semesterFromDB.Id,
                         SemesterId = semesterFromDB.SemesterId,
@@ -90,6 +92,8 @@ namespace University.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]Class _class)
         {
+            DateTime createDate = DateTime.Now;
+            _class.CreatedDate = createDate;
             await _classRepository.Create(_class);
             return new OkObjectResult(_class);
         }
@@ -105,6 +109,8 @@ namespace University.Controllers
             classFromDb.ClassName = _class.ClassName;
             classFromDb.Semester = _class.Semester;
             classFromDb.Instructor = _class.Instructor;
+            DateTime updateDate = DateTime.Now;
+            classFromDb.UpdatedDate = updateDate;
             await _classRepository.Update(classFromDb);
             return new OkObjectResult(classFromDb);
         }

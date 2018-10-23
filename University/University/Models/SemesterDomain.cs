@@ -1,20 +1,17 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace University.Models
 {
-    public class Semester
+    public class SemesterDomain
     {
         [BsonId]
         public ObjectId Id { get; set; }
         public int SemesterId { get; set; }
         public string SemesterName { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
-
     }
 }

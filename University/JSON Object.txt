@@ -1,0 +1,14 @@
+{
+	"StudentId": 1,
+	"FirstName": "FantaSee",
+	"LastName": "Vo",
+	"DateOfBirth": "02-18-1992",
+	"ClassAttend": 
+	[
+		"English",
+		"Geometry",
+		"Computer",
+		"History",
+		"Government"
+	]
+}

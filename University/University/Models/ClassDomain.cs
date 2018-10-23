@@ -9,7 +9,9 @@ namespace University.Models
     {
         public int ClassId { get; set; }
         public string ClassName { get; set; }
-        public List<Semester> Semester { get; set; } // reference to Semester Collection
-        public List<Instructor> Instructor { get; set; } // reference to Instructor Collection
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public List<SemesterDomain> Semester { get; set; } // reference to Semester Collection
+        public List<InstructorDomain> Instructor { get; set; } // reference to Instructor Collection
     }
 }

@@ -45,6 +45,8 @@ namespace University.Controllers
             studentDomain.FirstName = studentFromDB.FirstName;
             studentDomain.LastName = studentFromDB.LastName;
             studentDomain.DateOfBirth = studentFromDB.DateOfBirth;
+            studentDomain.CreatedDate = studentFromDB.CreatedDate;
+            studentDomain.UpdatedDate = studentFromDB.UpdatedDate;
             student.ClassAttend = studentFromDB.ClassAttend;
            
             foreach (var attend in student.ClassAttend)
@@ -69,6 +71,8 @@ namespace University.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]Student student)
         {
+            DateTime createDate = DateTime.Now;
+            student.CreatedDate = createDate;
             await _studentRepository.Create(student);
             return new OkObjectResult(student);
         }
@@ -85,6 +89,8 @@ namespace University.Controllers
             studentFromDb.LastName = student.LastName;
             studentFromDb.DateOfBirth = student.DateOfBirth;
             studentFromDb.ClassAttend = student.ClassAttend;
+            DateTime updateDate = DateTime.Now;
+            studentFromDb.UpdatedDate = updateDate;
             await _studentRepository.Update(studentFromDb);
             return new OkObjectResult(studentFromDb);
         }

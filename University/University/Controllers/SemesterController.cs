@@ -42,6 +42,8 @@ namespace University.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]Semester semester)
         {
+            DateTime createDate = DateTime.Now;
+            semester.CreatedDate = createDate;
             await _semesterRepository.Create(semester);
             return new OkObjectResult(semester);
         }
@@ -55,6 +57,8 @@ namespace University.Controllers
                 return new NotFoundResult();
             semesterFromDb.SemesterId = semester.SemesterId;
             semesterFromDb.SemesterName = semester.SemesterName;
+            DateTime updateDate = DateTime.Now;
+            semesterFromDb.UpdatedDate = updateDate;
             await _semesterRepository.Update(semesterFromDb);
             return new OkObjectResult(semesterFromDb);
         }

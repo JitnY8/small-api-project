@@ -11,6 +11,8 @@ namespace University.Models
     {
         public int StudentId { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
         public List<ClassDomainForStudent> ClassAttend { get; set; }
     }
 }

@@ -1,0 +1,8 @@
+db.Instructors.insert([{"InstructorId": 1, "FirstName": "Hue", "LastName": "Vo"}])
+
+db.Semesters.insert([{"SemesterId": 1, "SemesterName": "Fall 2015"}])
+
+db.Classes.insert([{"ClassId": 1, "ClassName": "English"}])
+
+db.Students.insert([{"StudentId": 1, "FirstName": "Hien", "LastName" : "Vo"}])
+

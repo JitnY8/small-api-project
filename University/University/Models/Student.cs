@@ -13,6 +13,8 @@ namespace University.Models
         public ObjectId Id { get; set; }
         public int StudentId { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
         public List<int> ClassAttend { get; set; } // reference to Class Collection
     }
 }
